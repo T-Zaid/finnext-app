@@ -20,7 +20,7 @@ const MobileNavbar = ({ user }: MobileNavProps) => {
                 <SheetTrigger>
                     <Image src='/icons/hamburger.svg' width={30} height={30} alt="menu" className="cursor-pointer" />
                 </SheetTrigger>
-                <SheetContent className="border-none bg-white">
+                <SheetContent className="border-none bg-white" side='left'>
                     <Link href='/' className="mb-12 cursor-pointer items-center gap-1 px-4 flex">
                         <Image src='/icons/logo.svg' width={34} height={34} alt='FinNext Logo' />
                         <h1 className="text-26 font-ibm-plex-serif font-bold text-black-1">FinNext</h1>
