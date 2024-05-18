@@ -13,7 +13,9 @@ export default function Home() {
           <BalanceBox accounts={[]} totalBanks={1} totalCurrentBalance={1250.23} />
         </header>
       </div>
-      <RightSidebar user={{firstName: "Tiger", lastName: "Mastery", email: 'tiger@mastery.pro'}} />
+      <RightSidebar
+        user={{ firstName: "Tiger", lastName: "Mastery", email: 'tiger@mastery.pro' }} 
+        banks={[{}, {}]}/>
     </section>
   );
 }
