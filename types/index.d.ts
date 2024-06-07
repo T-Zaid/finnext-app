@@ -1,5 +1,8 @@
 /* eslint-disable no-unused-vars */
 
+import { Control } from "react-hook-form";
+import { authFormSchema } from "@/lib/utils";
+
 declare type SearchParamProps = {
   params: { [key: string]: string };
   searchParams: { [key: string]: string | string[] | undefined };
