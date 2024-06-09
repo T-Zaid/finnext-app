@@ -61,6 +61,26 @@ const AuthenticationForm = ({ type }: { type: string }) => {
                 <>
                     <Form {...form}>
                         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+
+                            {type === "sign-up" && (<>
+                                <div className="flex gap-4">
+                                    <CustomFormInput control={form.control} name="firstName" label="First name" placeholder="ex: John" />
+                                    <CustomFormInput control={form.control} name="lastName" label="Last name" placeholder="ex: Doe" />
+                                </div>
+                                <CustomFormInput control={form.control} name="address1" label="Address" placeholder="Enter your specific address" />
+                                <CustomFormInput control={form.control} name="city" label="City" placeholder="Enter your city" />
+                                <div className="flex gap-4">
+                                    <CustomFormInput control={form.control} name="state" label="State" placeholder="ex: NY" />
+                                    <CustomFormInput control={form.control} name="postalCode" label="Postal code" placeholder="ex: 11101" />
+                                </div>
+                                <div className="flex gap-4">
+                                    <CustomFormInput control={form.control} name="dateOfBirth" label="Date of birth" placeholder="yyyy-mm-dd" />
+                                    <CustomFormInput control={form.control} name="ssn" label="SSN" placeholder="ex: 1234" />
+                                </div>
+                            </>)}
+
+
+
                             <CustomFormInput control={form.control} name="email" label="Email" placeholder="Enter email address" />
                             <CustomFormInput control={form.control} name="password" label="Password" placeholder="Enter password..." />
                             <div className="flex flex-col gap-4">

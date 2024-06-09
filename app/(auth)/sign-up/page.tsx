@@ -3,7 +3,9 @@ import React from 'react'
 
 const SignUp = () => {
   return (
-    <AuthenticationForm type="sign-up" />
+    <section className="flex-center size-full max-sm:px-6">
+      <AuthenticationForm type="sign-up" />
+    </section>
   )
 }
 
