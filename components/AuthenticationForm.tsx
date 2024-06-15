@@ -12,9 +12,10 @@ import { useState } from "react";
 import CustomFormInput from "./CustomFormInput";
 import { authFormSchema } from "@/lib/utils";
 import { Loader2 } from "lucide-react";
+import { signUp } from "@/lib/server/user.action";
 
 const AuthenticationForm = ({ type }: { type: string }) => {
-    const [user, setuser] = useState(null);
+    const [user, setUser] = useState(null);
     const [isLoading, setIsLoading] = useState(false);
     const formSchema = authFormSchema(type);
 
@@ -28,11 +29,19 @@ const AuthenticationForm = ({ type }: { type: string }) => {
     })
 
     // 2. Define a submit handler.
-    function onSubmit(values: z.infer<typeof formSchema>) {
+    async function onSubmit(values: z.infer<typeof formSchema>) {
         setIsLoading(true);
         // Do something with the form values.
         // ✅ This will be type-safe and validated.
-        console.log(values)
+        try {
+            if (type === "sign-up") {
+                const newUser = await signUp(values);
+                setUser(newUser);
+            }
+            console.log(user);
+        } catch (error) {
+            console.error("Form submission error: ", error);
+        }
         setIsLoading(false);
     }
 
