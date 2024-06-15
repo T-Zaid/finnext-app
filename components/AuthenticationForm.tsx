@@ -12,9 +12,11 @@ import { useState } from "react";
 import CustomFormInput from "./CustomFormInput";
 import { authFormSchema } from "@/lib/utils";
 import { Loader2 } from "lucide-react";
-import { signUp } from "@/lib/server/user.action";
+import { signIn, signUp } from "@/lib/server/user.action";
+import { useRouter } from "next/navigation";
 
 const AuthenticationForm = ({ type }: { type: string }) => {
+    const router = useRouter();
     const [user, setUser] = useState(null);
     const [isLoading, setIsLoading] = useState(false);
     const formSchema = authFormSchema(type);
@@ -38,7 +40,13 @@ const AuthenticationForm = ({ type }: { type: string }) => {
                 const newUser = await signUp(values);
                 setUser(newUser);
             }
-            console.log(user);
+            else {
+                const userSession = await signIn({ email: values.email, password: values.password });
+                setUser(userSession);
+            }
+            
+            if (user)
+                router.push('/');
         } catch (error) {
             console.error("Form submission error: ", error);
         }
@@ -64,7 +72,7 @@ const AuthenticationForm = ({ type }: { type: string }) => {
             </header>
             {user ? (
                 <div className="flex flex-col gap-4">
-
+                    Link account
                 </div>
             ) : (
                 <>
