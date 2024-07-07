@@ -1,6 +1,6 @@
 import MobileNavbar from "@/components/MobileNavbar";
 import Sidebar from "@/components/Sidebar";
-import { getLoggedInUser } from "@/lib/server/user.action";
+import { getLoggedInUser } from "@/lib/server/actions/user.action";
 import Image from "next/image";
 
 export default async function RootLayout({ children }: Readonly<{ children: React.ReactNode; }>) {

@@ -1,4 +1,4 @@
-import { signOut } from '@/lib/server/user.action';
+import { signOut } from '@/lib/server/actions/user.action';
 import { FooterProps } from '@/types';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';

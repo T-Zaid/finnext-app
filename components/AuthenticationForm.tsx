@@ -12,7 +12,7 @@ import { useState } from "react";
 import CustomFormInput from "./CustomFormInput";
 import { authFormSchema } from "@/lib/utils";
 import { Loader2 } from "lucide-react";
-import { signIn, signUp } from "@/lib/server/user.action";
+import { signIn, signUp } from "@/lib/server/actions/user.action";
 import { useRouter } from "next/navigation";
 
 const AuthenticationForm = ({ type }: { type: string }) => {
